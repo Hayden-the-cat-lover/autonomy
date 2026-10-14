@@ -1,0 +1,28 @@
+
+ZADANIE 2.1 - ANALIZA USZKODZEŃ CZUJNIKÓW TELEMETRYCZNYCH
+
+Na podstawie analizy wizualnej wykresów przebiegu współrzędnych X i Y w dziedzinie 
+czasu (charakterystyczne oscylacje kształtem przypominające fale dla toru Skidpad) 
+zidentyfikowano dwa zupełnie różne typy uszkodzeń dla każdego z sensorów:
+
+1. SENSOR 1: Szum pomiarowy wysokiej częstotliwości (Noise)
+* Objawy na wykresie: W początkowej fazie testu (przedział 0-5 sekund) sygnał 
+  wykazuje potężne, gwałtowne skoki wartości. Linia wykresu staje się bardzo 
+  poszarpana i gęsta, tworząc zniekształcony "szum".
+* Potencjalna przyczyna: Uszkodzenie to wynika najprawdopodobniej z wibracji 
+  mechanicznych pojazdu przenoszonych na konstrukcję montażową czujnika (np. 
+  poluzowany uchwyt), zakłóceń elektromagnetycznych w pobliżu wiązki sygnałowej 
+  lub awarii wewnętrznego układu filtrującego (np. filtra dolnoprzepustowego).
+
+2. SENSOR 2: Opóźnienie czasowe sygnału (Lag / Delay)
+* Objawy na wykresie: Przebieg tego czujnika jest idealnie gładki i pozbawiony 
+  szumów, jednak cała krzywa jest wyraźnie przesunięta w prawo na osi czasu 
+  względem Sensora 1. Wszystkie ekstrema (szczyty i dołki fal) pojawiają się 
+  z zauważalnym opóźnieniem.
+* Potencjalna przyczyna: Problem leży po stronie programowej lub transmisji 
+  danych. Może to być spowodowane zbyt niskim priorytetem ramek w magistrali CAN, 
+  przeciążeniem bufora mikrokontrolera odbierającego dane, bądź zastosowaniem 
+  zbyt agresywnego algorytmu wygładzającego, który eliminuje szum kosztem 
+  wprowadzenia dużego opóźnienia fazowego w czasie rzeczywistym.
+
+
